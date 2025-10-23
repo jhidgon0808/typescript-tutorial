@@ -276,219 +276,271 @@ import fs = require("fs");
 // console.log("adios")
 
 
-let PERSONA = {
-    id:1,
-    nombre: "Ren",
-    apellido: "Amamiya",
-    edad: 17,
-    direccion: {
-        calle: "Calle Morgana",
-        casa:{
-            numero: 13,
-            piso: 2
-        },
-        ciudad: "Tokyo",
-        pais: "Japon"
-    },
-    esMayorEdad: function():boolean{return this.edad>=18?true:false;}
+// let PERSONA = {
+//     id:1,
+//     nombre: "Ren",
+//     apellido: "Amamiya",
+//     edad: 17,
+//     direccion: {
+//         calle: "Calle Morgana",
+//         casa:{
+//             numero: 13,
+//             piso: 2
+//         },
+//         ciudad: "Tokyo",
+//         pais: "Japon"
+//     },
+//     esMayorEdad: function():boolean{return this.edad>=18?true:false;}
+// }
+
+// console.log (PERSONA.id);
+// console.log (PERSONA.esMayorEdad());
+
+// PERSONA.edad=18;
+
+// let PERSONA2= {
+//     id:2,
+//     nombre: "Makoto",
+//     apellido:"Yuki",
+//     edad: 16,
+//     esMayorEdad: function():boolean{return this.edad>=18?true:false;}
+
+// }
+// const config = {
+//     version: "1.0.0",
+//     appName: "MiAplicacion",
+//     developer: "Ezus"
+// }
+
+// const alertConfiguration={
+//     type:"danger",
+//     position:"center"
+// }
+
+// //const fRestar = function (a:number,b:number):number{return a-b;};
+
+// //TYPE
+// //Es una plantilla que me va a permitir reutilizar codigo
+
+// type Usuario={
+//     id:number;
+//     username:string;
+//     email:string;
+//     estaActivo:boolean;
+//     profileURL?:string;
+// }
+
+// type PuestoTrabajo = {
+//     puesto:string;
+//     oficina:string;
+// }
+// type Empleado = Usuario & PuestoTrabajo;
+
+// let ep1:Empleado={
+//     username: "empleado1",
+//     email: "",
+//     estaActivo: true,
+//     id: 1,
+//     puesto: "Desarrollador",
+//     oficina: "Remoto"
+// }
+
+// let user1:Usuario={
+//     id:1,
+//     username:"Ezus",
+//     email:"",
+//     estaActivo:true
+// }
+
+// console.log(user1.profileURL?.toUpperCase());
+
+// user1.username="user1"
+
+// user1.email="emailuser1@gmail.com"
+// user1.id=10;
+
+// type Saludo = `Hola ${string}`;
+
+// let Saludo:Saludo="Hola Ezus";
+
+// let e1:Empleado = {
+//     id: 1,
+//     username: "Ezus",
+//     email: "",
+//     estaActivo: true,
+//     puesto: "Dev",
+//     oficina: "Remoto"
+// }
+
+// //UNIONES |
+
+// //
+// let miRol:Role='ADMIN';
+// //type UserID= IdTemplate | number;
+
+// type Usuario2= {
+//     profileURL?:string
+//    //readonly id:UserID,
+//     userName:string,
+//     readonly email:string,
+//     estaActivo:boolean,
+//     rol:Role
+// }
+
+
+// type Role= 'ADMIN' | 'USER'| 'MODERATOR';
+
+// type Entidad='USER'|'PRODUCT';
+// type Accion= 'CREATE' | 'READ' | 'DELETE' | 'CRUD';
+
+// type Permiso= `${Entidad}_${Accion}`;
+// let permiso1:Permiso='USER_CREATE';
+
+// console.log(permiso1);
+
+// //const element = decodeURIComponent.getElementById("btn-login") as HTMLButtonElement;
+
+// type TDireccion= 'NORTH' | 'SOUTH' | 'EAST' | 'WEST';
+// //enum direccion{
+//  //   NORTH="Norte",
+//    // SOUTH="Sur",
+//     //EAST="Este",
+//     //WEST="Oeste"
+// //}
+// //let d1:TDireccion='NORTH';
+// //let d2:direccion=direccion.EAST;
+
+// //console.log(direccion);
+
+// enum EstadoTicket{
+//     Urgente,
+//     Abierto,
+//     En_Proceso,
+//     Cerrado,
+// }
+
+// //GUARDADO EN BD
+
+// let ticket= {
+//     nombreTicket: "Ticket 1",
+//     estado: EstadoTicket.Abierto
+// }
+// //OBJETO SE RECUPERA DE BD
+// //Estado --> 0 : Urgente
+// let estadoTicket=0;
+
+// switch(estadoTicket){
+//     case EstadoTicket.Abierto:
+//         console.log("El ticket esta abierto");
+//         break;
+//     case EstadoTicket.En_Proceso:
+//         console.log("El ticket esta en proceso");
+//         break;
+//     case EstadoTicket.Cerrado:
+//         console.log("El ticket esta cerrado");
+//         break;
+//     default:
+//         break;
+// }
+
+// //INTERFACES
+// type idCoche=`id-coche-${number}`;
+
+// interface Vehiculo{
+//     readonly id:number;
+//     color:string;
+//     marca:string;
+//     modelo:string;
+//     anyo:number;
+//     muestraInformarcion: (propietario:string)=>string;
+// }
+
+// interface Coche extends Vehiculo{
+//     tamVolante:number;
+// }
+
+// interface Moto extends Vehiculo{
+//     tipoManillar:number;
+// }
+
+// //CREACION DE OBJETOS
+
+// let miCoche:Vehiculo={
+//     etiquetaEco:true,
+//     id: 1,
+//     color: "Rojo",
+//     marca: "Toyota",
+//     modelo: "Corolla",
+//     anyo: 2020,
+//     muestraInformarcion: (propietario: string) => { return `El propietario es ${propietario}`; }
+// }
+
+
+
+// //CREACION OBJETOS
+// miCoche.muestraInformarcion("Ezus");
+
+// interface Vehiculo{
+//     etiquetaEco:boolean;
+// }
+
+// interface OperacionMatematica{
+//     (a:number,b:number):number;
+// }
+
+// const suma:OperacionMatematica= (a:number,b:number):number => {return a+b;};
+// const resta:OperacionMatematica= (a:number,b:number):number =>a-b;
+// const multiplica:OperacionMatematica= function(a:number,b:number) {return a*b;};  
+// const divide:OperacionMatematica= (a:number) =>  a/2;;
+
+
+// class Personas {
+//     constructor(public alias:string, public edad:number){}
+// }
+
+// interface IJugador{
+//     sueldo:number;
+//     alias:string;
+//     estaActivisimo:boolean;
+//     equipo?:string|undefined;
+// }
+// class Jugador extends Personas implements IJugador{
+
+
+//     constructor(public sueldo:number,public nombre:string,public estaActivisimo:boolean, public equipo?:string){
+//         super(nombre,21);
+//     }
+
+//     muestraInformacion(){
+//         return `El jugador ${this.nombre} esta activisimo: ${this.estaActivisimo?'SI':'NO'}`;
+//     }
+
+//     esMillonario(){
+//         return this.sueldo>1000000?true:false;
+//     }
+// }
+
+// let j1=new Jugador(100000000,"CRISTIANO RONALDO",true,"REAL MADRID");
+// let j2=new Jugador(200000000,"IKER CASILLAS",false);
+// console.log(j1.muestraInformacion());
+// console.log(j2.muestraInformacion());
+
+interface Animal{
+    nombre:string;
+    emitirSonido():void;
 }
 
-console.log (PERSONA.id);
-console.log (PERSONA.esMayorEdad());
-
-PERSONA.edad=18;
-
-let PERSONA2= {
-    id:2,
-    nombre: "Makoto",
-    apellido:"Yuki",
-    edad: 16,
-    esMayorEdad: function():boolean{return this.edad>=18?true:false;}
-
-}
-const config = {
-    version: "1.0.0",
-    appName: "MiAplicacion",
-    developer: "Ezus"
+class Perro implements Animal{
+    constructor(public nombre:string){}
+    emitirSonido(): void {
+        console.log("Guau Guau");
+    }
 }
 
-const alertConfiguration={
-    type:"danger",
-    position:"center"
+class Gato implements Animal{
+    constructor(public nombre:string){}
+    emitirSonido(): void {
+        console.log("Miau Miau");
+    }
 }
-
-//const fRestar = function (a:number,b:number):number{return a-b;};
-
-//TYPE
-//Es una plantilla que me va a permitir reutilizar codigo
-
-type Usuario={
-    id:number;
-    username:string;
-    email:string;
-    estaActivo:boolean;
-    profileURL?:string;
-}
-
-type PuestoTrabajo = {
-    puesto:string;
-    oficina:string;
-}
-type Empleado = Usuario & PuestoTrabajo;
-
-let ep1:Empleado={
-    username: "empleado1",
-    email: "",
-    estaActivo: true,
-    id: 1,
-    puesto: "Desarrollador",
-    oficina: "Remoto"
-}
-
-let user1:Usuario={
-    id:1,
-    username:"Ezus",
-    email:"",
-    estaActivo:true
-}
-
-console.log(user1.profileURL?.toUpperCase());
-
-user1.username="user1"
-
-user1.email="emailuser1@gmail.com"
-user1.id=10;
-
-type Saludo = `Hola ${string}`;
-
-let Saludo:Saludo="Hola Ezus";
-
-let e1:Empleado = {
-    id: 1,
-    username: "Ezus",
-    email: "",
-    estaActivo: true,
-    puesto: "Dev",
-    oficina: "Remoto"
-}
-
-//UNIONES |
-
-//
-let miRol:Role='ADMIN';
-//type UserID= IdTemplate | number;
-
-type Usuario2= {
-    profileURL?:string
-   //readonly id:UserID,
-    userName:string,
-    readonly email:string,
-    estaActivo:boolean,
-    rol:Role
-}
-
-
-type Role= 'ADMIN' | 'USER'| 'MODERATOR';
-
-type Entidad='USER'|'PRODUCT';
-type Accion= 'CREATE' | 'READ' | 'DELETE' | 'CRUD';
-
-type Permiso= `${Entidad}_${Accion}`;
-let permiso1:Permiso='USER_CREATE';
-
-console.log(permiso1);
-
-//const element = decodeURIComponent.getElementById("btn-login") as HTMLButtonElement;
-
-type TDireccion= 'NORTH' | 'SOUTH' | 'EAST' | 'WEST';
-//enum direccion{
- //   NORTH="Norte",
-   // SOUTH="Sur",
-    //EAST="Este",
-    //WEST="Oeste"
-//}
-//let d1:TDireccion='NORTH';
-//let d2:direccion=direccion.EAST;
-
-//console.log(direccion);
-
-enum EstadoTicket{
-    Urgente,
-    Abierto,
-    En_Proceso,
-    Cerrado,
-}
-
-//GUARDADO EN BD
-
-let ticket= {
-    nombreTicket: "Ticket 1",
-    estado: EstadoTicket.Abierto
-}
-//OBJETO SE RECUPERA DE BD
-//Estado --> 0 : Urgente
-let estadoTicket=0;
-
-switch(estadoTicket){
-    case EstadoTicket.Abierto:
-        console.log("El ticket esta abierto");
-        break;
-    case EstadoTicket.En_Proceso:
-        console.log("El ticket esta en proceso");
-        break;
-    case EstadoTicket.Cerrado:
-        console.log("El ticket esta cerrado");
-        break;
-    default:
-        break;
-}
-
-//INTERFACES
-type idCoche=`id-coche-${number}`;
-
-interface Vehiculo{
-    readonly id:number;
-    color:string;
-    marca:string;
-    modelo:string;
-    anyo:number;
-    muestraInformarcion: (propietario:string)=>string;
-}
-
-interface Coche extends Vehiculo{
-    tamVolante:number;
-}
-
-interface Moto extends Vehiculo{
-    tipoManillar:number;
-}
-
-//CREACION DE OBJETOS
-
-let miCoche:Vehiculo={
-    etiquetaEco:true,
-    id: 1,
-    color: "Rojo",
-    marca: "Toyota",
-    modelo: "Corolla",
-    anyo: 2020,
-    muestraInformarcion: (propietario: string) => { return `El propietario es ${propietario}`; }
-}
-
-
-
-//CREACION OBJETOS
-miCoche.muestraInformarcion("Ezus");
-
-interface Vehiculo{
-    etiquetaEco:boolean;
-}
-
-interface OperacionMatematica{
-    (a:number,b:number):number;
-}
-
-const suma:OperacionMatematica= (a:number,b:number):number => {return a+b;};
-const resta:OperacionMatematica= (a:number,b:number):number =>a-b;
-const multiplica:OperacionMatematica= function(a:number,b:number) {return a*b;};  
-const divide:OperacionMatematica= (a:number) =>  a/2;;
+  

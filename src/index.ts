@@ -444,17 +444,51 @@ switch(estadoTicket){
 }
 
 //INTERFACES
+type idCoche=`id-coche-${number}`;
 
 interface Vehiculo{
+    readonly id:number;
+    color:string;
     marca:string;
     modelo:string;
     anyo:number;
+    muestraInformarcion: (propietario:string)=>string;
+}
+
+interface Coche extends Vehiculo{
+    tamVolante:number;
+}
+
+interface Moto extends Vehiculo{
+    tipoManillar:number;
 }
 
 //CREACION DE OBJETOS
 
 let miCoche:Vehiculo={
+    etiquetaEco:true,
+    id: 1,
+    color: "Rojo",
     marca: "Toyota",
     modelo: "Corolla",
-    anyo: 2020
+    anyo: 2020,
+    muestraInformarcion: (propietario: string) => { return `El propietario es ${propietario}`; }
 }
+
+
+
+//CREACION OBJETOS
+miCoche.muestraInformarcion("Ezus");
+
+interface Vehiculo{
+    etiquetaEco:boolean;
+}
+
+interface OperacionMatematica{
+    (a:number,b:number):number;
+}
+
+const suma:OperacionMatematica= (a:number,b:number):number => {return a+b;};
+const resta:OperacionMatematica= (a:number,b:number):number =>a-b;
+const multiplica:OperacionMatematica= function(a:number,b:number) {return a*b;};  
+const divide:OperacionMatematica= (a:number) =>  a/2;;

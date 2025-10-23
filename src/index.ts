@@ -6,6 +6,8 @@
 //  * 
 //  */
 
+import fs = require("fs");
+
 // // Declaracion de variables
 // let x="juan";
 // var y;
@@ -320,7 +322,7 @@ const alertConfiguration={
 //TYPE
 //Es una plantilla que me va a permitir reutilizar codigo
 
-type Usuario{
+type Usuario={
     id:number;
     username:string;
     email:string;
@@ -372,6 +374,20 @@ let e1:Empleado = {
 
 //UNIONES |
 
+//
+let miRol:Role='ADMIN';
+//type UserID= IdTemplate | number;
+
+type Usuario2= {
+    profileURL?:string
+   //readonly id:UserID,
+    userName:string,
+    readonly email:string,
+    estaActivo:boolean,
+    rol:Role
+}
+
+
 type Role= 'ADMIN' | 'USER'| 'MODERATOR';
 
 type Entidad='USER'|'PRODUCT';
@@ -382,16 +398,63 @@ let permiso1:Permiso='USER_CREATE';
 
 console.log(permiso1);
 
-let miRol:Role='ADMIN';
+//const element = decodeURIComponent.getElementById("btn-login") as HTMLButtonElement;
 
-type UserID= IdTemplate | number;
+type TDireccion= 'NORTH' | 'SOUTH' | 'EAST' | 'WEST';
+//enum direccion{
+ //   NORTH="Norte",
+   // SOUTH="Sur",
+    //EAST="Este",
+    //WEST="Oeste"
+//}
+//let d1:TDireccion='NORTH';
+//let d2:direccion=direccion.EAST;
 
-type Usuario2= {
-    profileURL?:string
-    readonly id:UserID,
-    userName:string,
-    readonly email:string,
-    estaActivo:boolean,
-    rol:Role
+//console.log(direccion);
+
+enum EstadoTicket{
+    Urgente,
+    Abierto,
+    En_Proceso,
+    Cerrado,
 }
 
+//GUARDADO EN BD
+
+let ticket= {
+    nombreTicket: "Ticket 1",
+    estado: EstadoTicket.Abierto
+}
+//OBJETO SE RECUPERA DE BD
+//Estado --> 0 : Urgente
+let estadoTicket=0;
+
+switch(estadoTicket){
+    case EstadoTicket.Abierto:
+        console.log("El ticket esta abierto");
+        break;
+    case EstadoTicket.En_Proceso:
+        console.log("El ticket esta en proceso");
+        break;
+    case EstadoTicket.Cerrado:
+        console.log("El ticket esta cerrado");
+        break;
+    default:
+        break;
+}
+
+//INTERFACES
+
+interface Vehiculo{
+    marca:string;
+    modelo:string;
+    anyo:number;
+}
+
+//CREACION DE OBJETOS
+
+let miCoche:Vehiculo={
+    marca: "Toyota",
+    modelo: "Corolla",
+    anyo: 2020
+}
